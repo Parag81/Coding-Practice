@@ -20,3 +20,19 @@ Explanation: The answer for each box is as follows:
 """
 
 
+def minOperations(self, boxes):
+        lst = []
+        dict1 = {}
+        if "1" not in boxes:
+            return [0]*len(boxes)
+        dict1["1"] = list() 
+        for i in range(len(boxes)):
+            if boxes[i] == "1":
+                dict1["1"].append(i)
+        for i in range(len(boxes)):
+            count = 0
+            for j in dict1["1"]:
+                count += abs(i-int(j))
+            lst.append(count)
+        return lst
+
